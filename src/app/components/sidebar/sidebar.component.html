@@ -1,0 +1,107 @@
+<div class="wrapper">
+
+  <!-- Sidebar  -->
+  <nav id="sidebar" [ngClass]="sideBarOpen ? '' : 'active' ">
+
+    <!-- Sidebar Exit button -->
+    <div class="sidebar-header">
+      <div class="d-flex justify-content-end">
+        <button type="button" id="sidebarCollapse" class="btn" (click)="closeSidebar()">
+          <i class="bi bi-x-lg" style="color:#fafafa;;"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Sidebar Profile Picture -->
+    <div class="d-flex justify-content-center p-3">
+      <a href="#Intro">
+        <img src="/images/profile/professional.jpg" class="rounded-circle" alt="Profile Picture">
+      </a>
+    </div>
+
+    <!-- Sidebar Name -->
+    <h3 class="d-flex justify-content-center">
+      <a href="#Intro">
+        Timothy Jan
+      </a>
+    </h3>
+
+    <!-- Sidebar List -->
+    <ul class="components">
+      <li>
+        <a href="#About">About</a>
+      </li>
+      <li>
+        <a href="#Skills">Skills</a>
+      </li>
+      <li>
+        <a href="#Experience">Experience</a>
+      </li>
+      <li>
+        <a href="#FeaturedProjects">Featured Projects</a>
+      </li>
+      <li>
+        <a href="#Projects">Projects</a>
+      </li>
+    </ul>
+
+    <!-- <ul class="list-unstyled CTAs">
+      <li>
+        <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+      </li>
+      <li>
+        <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+      </li>
+    </ul> -->
+
+    <!-- Sidebar Icons -->
+    <div class="d-flex justify-content-center pb-3">
+      <a href="https://github.com/TimothyJan">
+        <i class="bi bi-github p-2"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/timothy-jan-m-s-533212108/">
+        <i class="bi bi-linkedin p-2"></i>
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="d-flex flex-column justify-content-center">
+      <div class="d-flex justify-content-center">
+        Created by
+      </div>
+      <div class="d-flex justify-content-center">
+        Timothy Jan
+      </div>
+      <div class="d-flex justify-content-center">
+        &copy;<span id="current-year">{{ currentYear }}</span>
+      </div>
+    </div>
+
+  </nav>
+
+  <!-- Page Content  -->
+  <div id="content" [ngClass]="sideBarOpen ? '' : 'full' ">
+
+    <i class="list-menu bi bi-list h1 p-3" *ngIf="!sideBarOpen" (click)="openSidebar()"></i>
+
+    <div id="Intro">
+      <app-intro></app-intro>
+    </div>
+    <div id="About">
+      <app-about></app-about>
+    </div>
+    <div id="Skills">
+      <app-skills></app-skills>
+    </div>
+    <div id="Experience">
+      <app-experience></app-experience>
+    </div>
+    <div id="FeaturedProjects">
+      <app-featured-projects></app-featured-projects>
+    </div>
+    <div id="Projects">
+      <app-projects></app-projects>
+    </div>
+  </div>
+
+</div>

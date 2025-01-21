@@ -1,0 +1,146 @@
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+  /* font-family: 'Poppins', sans-serif; */
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1em;
+  color: #999;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  /* align-items: stretch; */
+}
+
+#sidebar {
+  position: fixed;
+  min-width: var(--sidebar-width);
+  max-width: var(--sidebar-width);
+  background: var(--sidebar-background-color);
+  color: #fff;
+  transition: all 0.3s;
+  height: 100vh;
+  overflow: hidden;
+  padding: 10px;
+}
+
+#sidebar.active {
+  margin-left: -200px;
+  /* margin-left: calc(var(--sidebar-width * -1)); */
+}
+
+#sidebar .sidebar-header {
+  padding: 6px 6px;
+}
+
+#sidebar img {
+  max-width: 150px; /* Scales down the image */
+  height: auto;
+  border-radius: 50%;
+}
+
+#sidebar ul.components {
+  padding: 6px 0;
+  border-bottom: 1px solid #47748b;
+  text-align: center;
+  flex-grow: 1;
+}
+
+#sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+#sidebar ul li a {
+  padding: 10px 20px;
+  font-size: 1rem;
+  display: block;
+  text-transform: uppercase;
+  font-size: calc(0.4rem + 0.5vw);
+}
+
+#sidebar ul li a:hover {
+  color: var(--sidebar-background-color);
+  background: #fff;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+  color: #fff;
+  background: #6d7fcc;
+}
+
+#sidebar .d-flex i {
+  font-size: calc(0.6rem + 0.2vw); /* Icon size adjusts with zoom */
+}
+
+/* Footer copyright text */
+#sidebar .d-flex.flex-column {
+  flex-shrink: 0; /* Ensure footer stays visible */
+  font-size: calc(0.6rem + 0.2vw); /* Shrinks gracefully with zoom */
+  text-align: center;
+  line-height: 1.2; /* Compact spacing */
+}
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: #6d7fcc;
+}
+
+ul.CTAs {
+  padding: 15px;
+}
+
+ul.CTAs a {
+  text-align: center;
+  font-size: 0.9em !important;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+a.download {
+  background: #fff;
+  color: #7386D5;
+}
+
+a.article,
+a.article:hover {
+  background: #6d7fcc !important;
+  color: #fff !important;
+}
+
+#content {
+  width: 100%;
+  min-height: 100vh;
+  transition: all 0.3s;
+  padding-left: var(--sidebar-width);
+}
+
+.list-menu {
+  position: fixed;
+  cursor: pointer;
+  visibility: visible;
+}
+
+#content.full {
+  padding-left: 0;
+}

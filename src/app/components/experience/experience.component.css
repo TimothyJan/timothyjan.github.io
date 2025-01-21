@@ -1,0 +1,26 @@
+.job {
+  padding-bottom: 2.5%;
+}
+
+.experience .job .time-place {
+  display: flex;
+  justify-content: space-between;
+}
+
+.experience .job_position {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.experience .job_time {
+  font-size: .9rem;
+  font-family: Inconsolata,monospace;
+}
+
+ul {
+  margin-bottom: 0.5rem;
+}
+
+li {
+  list-style-position: outside;
+}

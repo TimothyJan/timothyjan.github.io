@@ -1,0 +1,39 @@
+.project {
+  padding-bottom: 5%;
+}
+
+.project_name {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.project_used {
+  display: flex;
+}
+
+.other-projects .project_used_item:first-of-type {
+  margin-left: 0;
+}
+
+.other-projects .project_used_item {
+  display: inline-block;
+  margin: 3px 3px 3px 0;
+  font-family: Inconsolata,monospace;
+  font-size: .75rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 3px;
+  color: #007bff;
+  border: 1px solid #007bff;
+  background: 0 0;
+}
+
+.black-text {
+  color: black;
+}
+
+.carousel-caption-below {
+  text-align: center;
+  padding-top: 10px;
+  color: #444;
+}
