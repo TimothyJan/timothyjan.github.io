@@ -86,7 +86,7 @@ export class ExperienceComponent implements OnInit{
       "January 2023 - Present",
       "Software Engineer",
       [
-        "Engineered an Angular-based responsive workforce management solution, improving user engagement across mobile and desktop platforms.",
+        "Engineered responsive workforce management solution, improving user engagement across mobile and desktop platforms using ASP.Net Core, Entity Framework Core, Angular, and SQL Server.",
         "Developed a Python MQTT app for real-time data processing and export to Jantek time attendance software.",
         "Optimized Wordpress site performance by 30% with custom WordPress theme and plugin enhancements, improving SEO rankings and user experience.",
         "Automated data pipelines with Python, improving scalability, speed, and exception handling."
