@@ -11,29 +11,33 @@ import { FeaturedProject, ImageCaption } from '../../models/featuredProject';
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.css'
 })
-export class CarouselComponent implements OnInit{
-  @Input() projectNumber: number = 0;
+export class CarouselComponent implements OnInit {
+  @Input() projectName: string = "";
   project = new FeaturedProject("","","",[]);
+  carouselId: string = 'carousel-' + Math.random().toString(36).substring(2, 9);
 
   ngOnInit(): void {
     this.selectProject();
   }
 
   selectProject(): void {
-    switch(this.projectNumber) {
-      case 1:
-        this.initializeProject1();
+    switch(this.projectName) {
+      case "ScreenCrit":
+        this.initializeScreenCrit();
         break;
-      case 2:
-        this.initializeProject2();
+      case "JanTaskTracker":
+        this.initializeJanTaskTracker();
+        break;
+      case "JanTaskTrackerIonic":
+        this.initializeJanTaskTrackerIonic();
         break;
       default:
-        this.initializeProject1();
+        this.initializeScreenCrit();
         break;
     }
   }
 
-  initializeProject1(): void {
+  initializeScreenCrit(): void {
     this.project = new FeaturedProject(
       "https://github.com/TimothyJan/ScreenCrit-MEAN",
       "ScreenCrit MEAN",
@@ -59,7 +63,7 @@ export class CarouselComponent implements OnInit{
     );
   }
 
-  initializeProject2(): void {
+  initializeJanTaskTracker(): void {
     this.project = new FeaturedProject(
       "https://github.com/TimothyJan/JanTaskTracker",
       "JanTaskTracker",
@@ -83,6 +87,37 @@ export class CarouselComponent implements OnInit{
         ),
       ],
       "https://timothyjan.github.io/JanTaskTracker-Frontend/"
+    );
+  }
+
+  initializeJanTaskTrackerIonic(): void {
+    this.project = new FeaturedProject(
+      "https://github.com/TimothyJan/JanTaskTracker-Frontend-Ionic",
+      "JanTaskTracker-Ionic",
+      "JanTaskTracker Full-stack project task and employee management app with CRUD functionality for projects, tasks, employees, departments, and roles using ASP.NET Core, Ionic-Angular, and SQL Server.",
+      [
+        new ImageCaption(
+          "/images/JanTaskTrackerIonic/0.png",
+          "SideMenu"
+        ),
+        new ImageCaption(
+          "/images/JanTaskTrackerIonic/1.png",
+          "Projects"
+        ),
+        new ImageCaption(
+          "/images/JanTaskTrackerIonic/2.png",
+          "Employees"
+        ),
+        new ImageCaption(
+          "/images/JanTaskTrackerIonic/3.png",
+          "Roles"
+        ),
+        new ImageCaption(
+          "/images/JanTaskTrackerIonic/4.png",
+          "Departments"
+        ),
+      ],
+      "https://timothyjan.github.io/JanTaskTracker-Frontend-Ionic/"
     );
   }
 }

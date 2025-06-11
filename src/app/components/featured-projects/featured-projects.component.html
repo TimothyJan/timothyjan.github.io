@@ -6,24 +6,51 @@
         <div class="section_title">Featured Projects</div>
       </div>
 
-      <div class="col-lg-10">
-        <div class="section_content">
+      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <li [ngbNavItem]="1">
+          <button ngbNavLink>Desktop</button>
+          <ng-template ngbNavContent>
+            <div class="col-lg-10">
+              <div class="section_content">
+                <div class="featured-project">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-9">
 
-          <div class="featured-project">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-9">
+                        <app-carousel [projectName]="'JanTaskTracker'"></app-carousel>
+                        <app-carousel [projectName]="'ScreenCrit'"></app-carousel>
 
-                  <app-carousel [projectNumber]="2"></app-carousel>
-                  <app-carousel [projectNumber]="1"></app-carousel>
-
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+          <button ngbNavLink>Mobile</button>
+          <ng-template ngbNavContent>
+            <div class="col-lg-10">
+              <div class="section_content">
+                <div class="featured-project">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-9">
 
-        </div>
-      </div>
+                        <app-carousel [projectName]="'JanTaskTrackerIonic'"></app-carousel>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+      </ul>
+
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
 
     </div>
   </div>
