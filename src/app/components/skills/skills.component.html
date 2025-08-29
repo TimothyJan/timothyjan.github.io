@@ -7,20 +7,21 @@
       <div class="col-lg-10">
         <div class="section_content_skills">
           <div class="skillz">
+
             <div class="skillz_category">
-              <div class="skillz_category_label">Languages</div>
+              <div class="skillz_category_label">Frontend</div>
                 <p
                   class="skillz_category_item"
-                  *ngFor="let language of languages">
-                  {{language}}
+                  *ngFor="let frontend of frontends">
+                  {{frontend}}
                 </p>
             </div>
             <div class="skillz_category">
-              <div class="skillz_category_label">Frameworks/Tools</div>
+              <div class="skillz_category_label">Backend</div>
                 <p
                   class="skillz_category_item"
-                  *ngFor="let framework of frameworks">
-                  {{framework}}
+                  *ngFor="let backend of backends">
+                  {{backend}}
                 </p>
             </div>
             <div class="skillz_category">
@@ -31,6 +32,23 @@
                   {{database}}
                 </p>
             </div>
+            <div class="skillz_category">
+              <div class="skillz_category_label">Architecture</div>
+                <p
+                  class="skillz_category_item"
+                  *ngFor="let architecture of architectures">
+                  {{architecture}}
+                </p>
+            </div>
+            <div class="skillz_category">
+              <div class="skillz_category_label">Validation</div>
+                <p
+                  class="skillz_category_item"
+                  *ngFor="let validation of validations">
+                  {{validation}}
+                </p>
+            </div>
+
           </div>
         </div>
       </div>

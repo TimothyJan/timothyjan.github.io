@@ -11,35 +11,33 @@ import { Component } from '@angular/core';
   styleUrl: './skills.component.css'
 })
 export class SkillsComponent {
-  languages = [
-    "Python",
-    "C#",
-    "JavaScript",
+  frontends = [
+    "Angular 16+",
     "TypeScript",
-    "HTML/CSS",
-    "C++",
-    "Java"
+    "RxJS",
+    "Angular Material",
+    "Reactive Forms",
   ];
-  frameworks = [
-    "Node",
-    "Express",
-    "Angular",
-    "React",
-    "ASP.Net Core",
+  backends = [
+    "ASP.Net Core 6+",
     "Entity Framework Core",
-    "Bootstrap",
-    "Git & Github",
-    "WordPress",
-    "Jupyter Notebook",
-    "Swagger",
-    "Postman",
-    "Flask",
-    "Django",
+    "SQL Server",
+    "RESTful APIs",
   ];
   databases = [
     "SQL Server",
     "Azure SQL",
     "AWS RDS",
     "MongoDB"
+  ];
+  architectures = [
+    "Repository Pattern",
+    "Dependency Injection",
+    "Clean Architecture",
+  ];
+  validations = [
+    "Data annotations",
+    "Fluent Validation",
+    "Custom business rules",
   ];
 }
