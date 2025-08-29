@@ -67,7 +67,7 @@ export class CarouselComponent implements OnInit {
     this.project = new FeaturedProject(
       "https://github.com/TimothyJan/JanTaskTracker",
       "JanTaskTracker",
-      "Full-stack task and employee management app with CRUD functionality for projects, tasks, employees, departments, and roles. Optimized team collaboration workflows by integrating a responsive UI with Bootstrap and managing scalable data operations in SQL Server.",
+      "Engineered full-stack project/task management system with CRUD operations and mobile cross-platform access via Ionic-Angular. Developed RESTful APIs with comprehensive error handling and responsive Angular UI with Material Design. Implemented SQL Server constraints ensuring data integrity and optimized database operations with Entity Framework Core.",
       [
         new ImageCaption(
           "/images/JanTaskTracker/1.png",
@@ -94,7 +94,7 @@ export class CarouselComponent implements OnInit {
     this.project = new FeaturedProject(
       "https://github.com/TimothyJan/JanTaskTracker-Frontend-Ionic",
       "JanTaskTracker-Ionic",
-      "JanTaskTracker Full-stack project task and employee management app with CRUD functionality for projects, tasks, employees, departments, and roles using ASP.NET Core, Ionic-Angular, and SQL Server.",
+      "Engineered full-stack project/task management system with CRUD operations and mobile cross-platform access via Ionic-Angular. Developed RESTful APIs with comprehensive error handling and responsive Angular UI with Material Design. Implemented SQL Server constraints ensuring data integrity and optimized database operations with Entity Framework Core.",
       [
         new ImageCaption(
           "/images/JanTaskTrackerIonic/0.png",
