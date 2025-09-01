@@ -65,28 +65,32 @@ export class CarouselComponent implements OnInit {
 
   initializeJanTaskTracker(): void {
     this.project = new FeaturedProject(
-      "https://github.com/TimothyJan/JanTaskTracker",
+      "https://github.com/TimothyJan/TaskTracker",
       "JanTaskTracker",
-      "Engineered full-stack project/task management system with CRUD operations and mobile cross-platform access via Ionic-Angular. Developed RESTful APIs with comprehensive error handling and responsive Angular UI with Material Design. Implemented SQL Server constraints ensuring data integrity and optimized database operations with Entity Framework Core.",
+      "Full-stack project task and employee management app with CRUD functionality for projects, tasks, employees, departments, and roles using ASP.NET Core, Angular Material, and SQL Server.",
       [
         new ImageCaption(
           "/images/JanTaskTracker/1.png",
-          "CRUD Project and Project Tasks"
+          "Home"
         ),
         new ImageCaption(
           "/images/JanTaskTracker/2.png",
-          "CRUD Employees"
+          "CRUD Project and Project Tasks"
         ),
         new ImageCaption(
           "/images/JanTaskTracker/3.png",
-          "CRUD Departments"
+          "CRUD Employees"
         ),
         new ImageCaption(
           "/images/JanTaskTracker/4.png",
           "CRUD Roles"
         ),
+        new ImageCaption(
+          "/images/JanTaskTracker/5.png",
+          "CRUD Departments"
+        ),
       ],
-      "https://timothyjan.github.io/JanTaskTracker-Frontend/"
+      "https://timothyjan.github.io/JanTaskTracker-AngularMaterial-Frontend"
     );
   }
 
@@ -94,7 +98,7 @@ export class CarouselComponent implements OnInit {
     this.project = new FeaturedProject(
       "https://github.com/TimothyJan/JanTaskTracker-Frontend-Ionic",
       "JanTaskTracker-Ionic",
-      "Engineered full-stack project/task management system with CRUD operations and mobile cross-platform access via Ionic-Angular. Developed RESTful APIs with comprehensive error handling and responsive Angular UI with Material Design. Implemented SQL Server constraints ensuring data integrity and optimized database operations with Entity Framework Core.",
+      "Full-stack project task and employee management app with CRUD functionality for projects, tasks, employees, departments, and roles using ASP.NET Core, Ionic-Angular, and SQL Server.",
       [
         new ImageCaption(
           "/images/JanTaskTrackerIonic/0.png",
