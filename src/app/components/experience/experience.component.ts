@@ -86,11 +86,11 @@ export class ExperienceComponent implements OnInit{
       "January 2023 - Present",
       "Software Engineer",
       [
-        "Engineered full-stack payroll management system using ASP.NET Core, Angular 16+, and SQL Server, improving user engagement by 50%.",
-        "Developed RESTful APIs with comprehensive error handling and responsive Angular UI with Material Design.",
-        "Implemented SQL Server constraints ensuring data integrity and protected record system with restricted editing capabilities.",
-        "Boosted productivity by over 100% leveraging generative AI (ChatGPT & DeepSeek) for rapid prototyping and code optimization.",
-        "Developed Python MQTT app for real-time data processing and optimized WordPress performance by 30% through SEO/UX enhancements."
+        "Developed full-stack payroll management system using ASP.NET Core, Angular 16+, and SQL Server, improving user engagement by 50%.",
+        "Built RESTful APIs with robust error handling and responsive Angular UI Material Design.",
+        "Enforced data integrity via SQL Server constraints and implemented role-based access controls.",
+        "Increased development productivity over 100% using Generative AI (ChatGPT, DeepSeek) for prototyping and optimization.",
+        "Created a Python MQTT app for real-time data processing and improved WordPress site performance by 30% via SEO/UX tuning."
       ]
     );
     this.jobs.push(job5, masters, job4, job3, job2, job1, bachelors);
