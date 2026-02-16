@@ -49,7 +49,9 @@ export class ExperienceComponent implements OnInit{
       "June 2018 - January 2019",
       "Electrical Engineer I",
       [
-        "Diagnosed and resolved firmware/software issues in medical devices and supported product improvements through data analysis.",
+        "Conducted root cause analysis on medical devices; delivered technical reports driving reliability improvements.",
+        "Diagnosed firmware/software issues and analyzed performance data for product enhancements.",
+        "Supported engineering teams with troubleshooting, documentation, and quality initiatives."
       ]
     );
     let job3 = new Job(
@@ -58,7 +60,9 @@ export class ExperienceComponent implements OnInit{
       "June 2018 - January 2019",
       "Failure Analysis Engineer II",
       [
-        "Analyzed returned medical devices to identify root causes of failures and prepared reports that supported product reliability improvements.",
+        "Conducted root cause analysis on medical devices; delivered technical reports driving reliability improvements.",
+        "Diagnosed firmware/software issues and analyzed performance data for product enhancements.",
+        "Supported engineering teams with troubleshooting, documentation, and quality initiatives."
       ]
     );
     let job4 = new Job(
@@ -67,8 +71,9 @@ export class ExperienceComponent implements OnInit{
       "March 2019 - November 2020",
       "Process Engineer",
       [
-        "Spearheaded collaboration across R&D, Regulatory, and Quality teams to qualify a new laparoscopic device harness.",
-        "Reduced costs by 90% and improved RF energy efficiency, enhancing operational performance and reliability.",
+        "Led cross-functional team (R&D, Regulatory, Quality) to qualify laparoscopic device harness.",
+        "Reduced harness costs by 90% while improving RF energy efficiency and device reliability.",
+        "Enhanced operational performance through strategic supplier collaboration."
       ]
     );
     let masters = new Job(
@@ -86,11 +91,10 @@ export class ExperienceComponent implements OnInit{
       "January 2023 - Present",
       "Software Engineer",
       [
-        "Developed full-stack payroll management system using ASP.NET Core, Angular 16+, and SQL Server, improving user engagement by 50%.",
-        "Built RESTful APIs with robust error handling and responsive Angular UI Material Design.",
-        "Enforced data integrity via SQL Server constraints and implemented role-based access controls.",
-        "Increased development productivity over 100% using Generative AI (ChatGPT, DeepSeek) for prototyping and optimization.",
-        "Created a Python MQTT app for real-time data processing and improved WordPress site performance by 30% via SEO/UX tuning."
+        "Built full-stack payroll system with ASP.NET Core, Angular 16+, SQL Server (50% user engagement increase).",
+        "Developed RESTful APIs with Angular Material UI and role-based access controls.",
+        "Boosted dev productivity 100%+ using GenAI (ChatGPT, DeepSeek) for rapid prototyping.",
+        "Created Python MQTT app for real-time data processing; optimized WordPress (30% performance gain).",
       ]
     );
     this.jobs.push(job5, masters, job4, job3, job2, job1, bachelors);

@@ -19,25 +19,28 @@ export class SkillsComponent {
     "Reactive Forms",
   ];
   backends = [
-    "ASP.Net Core 6+",
+    "ASP.NET Core",
+    "C#",
     "Entity Framework Core",
-    "SQL Server",
     "RESTful APIs",
   ];
   databases = [
-    "SQL Server",
+    "SQL Server(constraints, indexes, stored procedures)",
+    "T-SQL",
     "Azure SQL",
     "AWS RDS",
     "MongoDB"
   ];
   architectures = [
+    "Clean Architecture",
     "Repository Pattern",
     "Dependency Injection",
-    "Clean Architecture",
   ];
   validations = [
-    "Data annotations",
+    "Git",
+    "Python",
+    "WordPress",
     "Fluent Validation",
-    "Custom business rules",
+    "Data Annotations"
   ];
 }
