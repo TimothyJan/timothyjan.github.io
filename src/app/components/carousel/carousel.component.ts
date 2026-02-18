@@ -34,6 +34,9 @@ export class CarouselComponent implements OnInit {
       case "TimMari2026":
         this.initializeTimMari2026()
         break;
+      case "HoneyDoThis":
+        this.initializeHoneyDoThis()
+        break;
       default:
         this.initializeScreenCrit();
         break;
@@ -168,6 +171,29 @@ export class CarouselComponent implements OnInit {
         ),
       ],
       "https://timothyjan.github.io/TimMari2026/"
+    );
+  }
+
+  initializeHoneyDoThis(): void {
+    this.project = new FeaturedProject(
+      "https://github.com/TimothyJan/HoneyDoThis",
+      "Honey Do This",
+      "A relationship preserving Full Stack Web Application for domestic tasks/duties using ASP.NET Core, Angular 16+ and SQL Server.",
+      [
+        new ImageCaption(
+          "/images/HoneyDoThis/1.jpg",
+          "Create, complete, and delete tasks and subtasks. With the 'View All' filter, drag any task to reorder."
+        ),
+        new ImageCaption(
+          "/images/HoneyDoThis/2.jpg",
+          "With the 'Active' filter, view all active tasks."
+        ),
+        new ImageCaption(
+          "/images/HoneyDoThis/3.jpg",
+          "With the 'Completed' filter, view and clear all completed tasks."
+        ),
+      ],
+      "https://timothyjan.github.io/HoneyDoThis-frontend/"
     );
   }
 }
