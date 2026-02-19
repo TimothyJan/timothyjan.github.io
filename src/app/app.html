@@ -1,1 +1,269 @@
-<app-main></app-main>
+<main>
+
+  <app-sidebar></app-sidebar>
+
+  <!-- main-content -->
+  <div class="main-content">
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <ul class="navbar-list">
+        <li class="navbar-item">
+          <button class="navbar-link" [class.active]="activePage === 'about'" (click)="setActivePage('about')" mat-button>About</button>
+        </li>
+        <li class="navbar-item">
+          <button class="navbar-link" [class.active]="activePage === 'resume'" (click)="setActivePage('resume')" mat-button>Resume</button>
+        </li>
+        <li class="navbar-item">
+          <button class="navbar-link" [class.active]="activePage === 'portfolio'" (click)="setActivePage('portfolio')" mat-button>Portfolio</button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ABOUT -->
+    <article class="about" [class.active]="activePage === 'about'" data-page="about">
+      <header>
+        <h2 class="h2 article-title">About me</h2>
+      </header>
+
+      <section class="about-text">
+        <p>
+          I'm a Software Engineer at Jantek Electronics specializing in Full Stack development. I build scalable web applications using ASP.NET Core and Angular, and I have a deep interest in performance optimization and AI integration.
+        </p>
+        <p>
+          My path to software started in Electrical Engineering—a family tradition following my grandfather and dad. After three years in that field, I made the leap to Computer Science during the COVID era. (Sorry, Dad! 😅) That background gives me a unique perspective on hardware-software interaction and system-level thinking.
+        </p>
+        <p>
+          I'm happiest when building tools that have a tangible impact. Lately, that means creating full-stack apps or writing scripts to simplify daily life at home with my wife (we just got married in August 2024!). Outside of coding, I'm either at the gym, on the basketball/volleyball court, exploring new cuisines while traveling, or debating strategy in board games and video games."
+        </p>
+      </section>
+
+      <!-- Service -->
+      <section class="service">
+        <h3 class="h3 service-title">What I'm Doing</h3>
+        <ul class="service-list">
+          <li class="service-item">
+            <div class="service-icon-box">
+              <div class="icon-box">
+                <mat-icon>desktop_windows</mat-icon>
+              </div>
+            </div>
+            <mat-icon class="fa fa-code"></mat-icon>
+            <div class="service-content-box">
+              <h4 class="h4 service-item-title">Frontend Development</h4>
+              <p class="service-item-text">Building responsive, intuitive interfaces that users actually enjoy. I specialize in Angular to create professional-grade, mobile-friendly web apps that don't sacrifice performance for polish. (I prefer desktop, but my wife prefers mobile—so I make sure both of us are happy.)</p>
+            </div>
+          </li>
+
+          <li class="service-item">
+            <div class="service-icon-box">
+              <div class="icon-box">
+                <mat-icon>dns</mat-icon>
+              </div>
+            </div>
+            <div class="service-content-box">
+              <h4 class="h4 service-item-title">Backend Development</h4>
+              <p class="service-item-text">Designing scalable RESTful APIs with ASP.NET Core. I focus on clean architecture and performance so the frontend has a solid, reliable foundation to talk to.</p>
+            </div>
+          </li>
+
+          <li class="service-item">
+            <div class="service-icon-box">
+              <div class="icon-box">
+                <mat-icon>device_hub</mat-icon>
+              </div>
+            </div>
+            <div class="service-content-box">
+              <h4 class="h4 service-item-title">Database Management</h4>
+              <p class="service-item-text">Configuring and maintaining secure SQL Server databases. I ensure data is stored efficiently, retrieved quickly, and—most importantly—kept safe.</p>
+            </div>
+          </li>
+
+          <li class="service-item">
+            <div class="service-icon-box">
+              <div class="icon-box">
+                <mat-icon>sync</mat-icon>
+              </div>
+            </div>
+            <div class="service-content-box">
+              <h4 class="h4 service-item-title">Integration & DevOps</h4>
+              <p class="service-item-text">Bridging the gap between frontend, backend, and the real world. I handle API integrations and deployment pipelines so the code actually makes it to production smoothly.</p>
+            </div>
+          </li>
+
+          <li class="service-item">
+            <div class="service-icon-box">
+              <div class="icon-box">
+                <mat-icon>groups</mat-icon>
+              </div>
+            </div>
+            <div class="service-content-box">
+              <h4 class="h4 service-item-title">Project Collaboration</h4>
+              <p class="service-item-text">Translating user needs into working software. I partner with project managers and fellow developers to turn requirements into features—without losing the technical details (or the big picture) along the way.</p>
+            </div>
+          </li>
+
+          <li class="service-item">
+            <div class="service-icon-box">
+              <div class="icon-box">
+                <mat-icon>auto_awesome</mat-icon>
+              </div>
+            </div>
+            <div class="service-content-box">
+              <h4 class="h4 service-item-title">AI-Augmented Development</h4>
+              <p class="service-item-text">Leveraging generative AI and LLMs to accelerate prototyping, automate boilerplate code, and debug complex issues. I treat AI as a collaborative pair programmer—it helps me move faster, but I own the architecture, security, and final quality of every line of code.</p>
+            </div>
+          </li>
+
+        </ul>
+      </section>
+
+    </article>
+
+    <!-- RESUME -->
+    <article class="resume" [class.active]="activePage === 'resume'" data-page="resume">
+      <header>
+        <h2 class="h2 article-title">Resume</h2>
+      </header>
+
+      <section class="timeline">
+        <div class="title-wrapper">
+          <div class="icon-box">
+            <mat-icon>menu_book</mat-icon>
+          </div>
+          <h3 class="h3">Education</h3>
+        </div>
+
+        <ol class="timeline-list">
+          <li class="timeline-item" *ngFor="let item of education">
+            <h4 class="h4 timeline-item-title">{{ item.title }}</h4>
+            <span>{{ item.period }}</span>
+            <p class="timeline-text">{{ item.description }}</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="timeline">
+        <div class="title-wrapper">
+          <div class="icon-box">
+            <mat-icon>work_outline</mat-icon>
+          </div>
+          <h3 class="h3">Experience</h3>
+        </div>
+
+        <ol class="timeline-list">
+          <li class="timeline-item" *ngFor="let item of experience">
+            <h4 class="h4 timeline-item-title">{{ item.title }}</h4>
+            <span>{{ item.period }}</span>
+            <p class="timeline-text">{{ item.description }}</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="skill">
+        <h3 class="h3 skills-title">My skills</h3>
+        <ul class="skills-list content-card">
+          <li class="skills-item" *ngFor="let skill of skills">
+            <div class="title-wrapper">
+              <h5 class="h5">{{ skill.name }}</h5>
+              <data [value]="skill.percentage">{{ skill.percentage }}%</data>
+            </div>
+            <div class="skill-progress-bg">
+              <div class="skill-progress-fill" [style.width.%]="skill.percentage"></div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+    </article>
+
+    <!-- PORTFOLIO -->
+    <article class="portfolio" [class.active]="activePage === 'portfolio'" data-page="portfolio">
+      <header>
+        <h2 class="h2 article-title">Portfolio</h2>
+      </header>
+
+      <section class="projects">
+        <ul class="filter-list">
+          <li class="filter-item" *ngFor="let category of filterCategories">
+            <button class="filter-btn" [class.active]="activeFilter === category" (click)="setActiveFilter(category)" mat-button data-filter-btn>{{ category }}</button>
+          </li>
+        </ul>
+
+        <div class="filter-select-box">
+          <button class="filter-select" [class.active]="filterSelectActive" (click)="toggleFilterSelect()" data-select>
+            <div class="select-value" data-selecct-value>{{ selectedFilter }}</div>
+            <div class="select-icon">
+              <mat-icon>expand_more</mat-icon>
+            </div>
+          </button>
+
+          <ul class="select-list">
+            <li class="select-item" *ngFor="let category of filterCategories">
+              <button (click)="selectFilter(category)" data-select-item>{{ category }}</button>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="project-list">
+          <li class="project-item active" *ngFor="let project of projects"
+              [class.active]="matchesFilter(project.category)"
+              [attr.data-filter-item]="''"
+              [attr.data-category]="project.category">
+            <a href="#">
+              <figure class="project-img">
+                <div class="project-item-icon-box">
+                  <mat-icon>visibility</mat-icon>
+                </div>
+                <img [src]="'/images/' + project.image" [alt]="project.title" loading="lazy">
+              </figure>
+              <h3 class="project-title">{{ project.title }}</h3>
+              <p class="project-category">{{ project.category }}</p>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+            <!-- Testimonials -->
+      <section class="testimonials">
+        <h3 class="h3 testimonials-title">Testimonials</h3>
+        <ul class="testimonials-list has-scrollbar">
+          <li class="testimonials-item" *ngFor="let testimonial of testimonials">
+            <div class="content-card" (click)="openTestimonialModal(testimonial)" data-testimonials-item>
+              <figure class="testimonials-avatar-box">
+                <img [src]="testimonial.avatar" [alt]="testimonial.name" width="60" data-testimonials-avatar>
+              </figure>
+              <h4 class="h4 testimonials-item-title" data-testimonials-title>{{ testimonial.name }}</h4>
+              <div class="testimonials-text" data-testimonials-text>
+                <p>{{ testimonial.text }}</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Testimonials Modal -->
+      <div class="modal-container" #modalContainer [class.active]="modalActive" data-modal-container>
+        <div class="overlay" #overlay [class.active]="modalActive" (click)="closeTestimonialModal()" data-overlay></div>
+        <section class="testimonials-modal" *ngIf="selectedTestimonial">
+          <button class="modal-close-btn" (click)="closeTestimonialModal()" data-modal-close-btn mat-icon-button>
+            <mat-icon>close</mat-icon>
+          </button>
+          <div class="modal-img-wrapper">
+            <figure class="modal-avatar-box">
+              <img [src]="selectedTestimonial.avatar" [alt]="selectedTestimonial.name" width="80" data-modal-img>
+            </figure>
+            <img src="/images/icon-quote.svg" alt="quote icon">
+          </div>
+          <div class="modal-content">
+            <h4 class="h3 modal-title" data-modal-title>{{ selectedTestimonial.name }}</h4>
+            <time datetime="2021-06-14">14 June, 2021</time>
+            <div data-modal-text>
+              <p>{{ selectedTestimonial.text }}</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </article>
+
+  </div>
+</main>
