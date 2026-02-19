@@ -125,22 +125,18 @@
         <h2 class="h2 article-title">Resume</h2>
       </header>
 
-      <section class="timeline">
-        <div class="title-wrapper">
-          <div class="icon-box">
-            <mat-icon>menu_book</mat-icon>
-          </div>
-          <h3 class="h3">Education</h3>
-        </div>
-
-        <ol class="timeline-list">
-          <li class="timeline-item" *ngFor="let item of education">
-            <h4 class="h4 timeline-item-title">{{ item.title }}</h4>
-            <span>{{ item.period }}</span>
-            <p class="timeline-text">{{ item.description }}</p>
-          </li>
-        </ol>
-      </section>
+      <!-- Resume Download Button -->
+      <div class="resume-actions">
+        <a href="/Resume_TimothyJan.pdf"
+          class="resume-btn"
+          target="_blank"
+          rel="noopener"
+          download="Timothy_Jan_Resume.pdf">
+          <mat-icon>picture_as_pdf</mat-icon>
+          <span>Download Resume (PDF)</span>
+          <mat-icon>download</mat-icon>
+        </a>
+      </div>
 
       <section class="timeline">
         <div class="title-wrapper">
@@ -151,27 +147,106 @@
         </div>
 
         <ol class="timeline-list">
-          <li class="timeline-item" *ngFor="let item of experience">
-            <h4 class="h4 timeline-item-title">{{ item.title }}</h4>
-            <span>{{ item.period }}</span>
-            <p class="timeline-text">{{ item.description }}</p>
+          <li class="timeline-item" *ngFor="let job of experiences">
+            <div class="timeline-item-header">
+              <div class="timeline-item-title">
+                <h4 class="h4">{{ job.title }}</h4>
+                <a [href]="job.companyUrl" target="_blank" rel="noopener" class="company-link">
+                  @ {{ job.companyName }}
+                  <mat-icon>open_in_new</mat-icon>
+                </a>
+                @if(job.isCurrent) {
+                  <span class="current-role">Current</span>
+                }
+              </div>
+              <span class="period">{{ job.period }}</span>
+            </div>
+
+            <ul class="achievements-list">
+              @for(achievement of job.achievements; track achievement) {
+                <li class="achievement-item">
+                  <mat-icon>chevron_right</mat-icon>
+                  <span>{{ achievement }}</span>
+                </li>
+              }
+
+            </ul>
           </li>
         </ol>
       </section>
 
-      <section class="skill">
-        <h3 class="h3 skills-title">My skills</h3>
-        <ul class="skills-list content-card">
-          <li class="skills-item" *ngFor="let skill of skills">
-            <div class="title-wrapper">
-              <h5 class="h5">{{ skill.name }}</h5>
-              <data [value]="skill.percentage">{{ skill.percentage }}%</data>
+      <!-- Skills Grid Section -->
+      <section class="skills-grid-section">
+        <div class="title-wrapper">
+          <div class="icon-box">
+            <mat-icon>code</mat-icon>
+          </div>
+          <h3 class="h3">Technical Skills</h3>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Frontend -->
+           @for(category of skillCategories; track category.name) {
+            <div class="skill-category">
+              <div class="category-header">
+                <div class="icon-box">
+                  <mat-icon>{{ category.icon }}</mat-icon>
+                </div>
+                <h4>{{ category.name }}</h4>
+                <span>{{ category.items.length }}</span>
+              </div>
+
+              <div class="skill-items">
+                @for(skill of category.items; track skill) {
+                  <span class="skill-tag">
+                    @switch(category.name) {
+                      @case('Frontend') { <mat-icon>html</mat-icon> }
+                      @case('Backend') { <mat-icon>settings</mat-icon> }
+                      @case('Databases') { <mat-icon>device_hub</mat-icon> }
+                      @case('Architecture') { <mat-icon>account_tree</mat-icon> }
+                      @case('Tools & Validation') { <mat-icon>build</mat-icon> }
+                    }
+                    {{ skill }}
+                  </span>
+                }
+
+              </div>
             </div>
-            <div class="skill-progress-bg">
-              <div class="skill-progress-fill" [style.width.%]="skill.percentage"></div>
+           }
+
+        </div>
+      </section>
+
+      <section class="timeline">
+        <div class="title-wrapper">
+          <div class="icon-box">
+            <mat-icon>menu_book</mat-icon>
+          </div>
+          <h3 class="h3">Education</h3>
+        </div>
+
+        <ol class="timeline-list">
+          <li class="timeline-item" *ngFor="let item of education; let i = index">
+            <h4 class="h4 timeline-item-title">{{ item.title }}</h4>
+            <span>{{ item.period }}</span>
+            <p class="timeline-text">{{ item.description }}</p>
+
+            <!-- Course Toggle Button -->
+            <div class="course-toggle" [class.expanded]="expandedCourses[i]" (click)="toggleCourses(i)">
+              <mat-icon>{{ expandedCourses[i] ? 'expand_less' : 'expand_more' }}</mat-icon>
+              <span>{{ expandedCourses[i] ? 'Hide courses' : 'Show courses (' + item.courses.length + ')' }}</span>
+            </div>
+
+            <!-- Course List (conditionally shown) -->
+            <div class="course-list-container" *ngIf="expandedCourses[i]">
+              <div class="course-list">
+                <div *ngFor="let course of item.courses" class="course-item">
+                  {{ course }}
+                </div>
+              </div>
             </div>
           </li>
-        </ul>
+        </ol>
       </section>
 
     </article>
