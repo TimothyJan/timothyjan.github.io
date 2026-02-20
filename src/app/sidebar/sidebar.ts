@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -12,5 +12,10 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './sidebar.css',
 })
 export class Sidebar {
+  @ViewChild('sidebar') sidebarRef!: ElementRef;
 
+  toggleSidebar() {
+    const sidebar = this.sidebarRef.nativeElement;
+    sidebar.classList.toggle('active');
+  }
 }
