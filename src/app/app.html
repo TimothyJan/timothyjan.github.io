@@ -41,79 +41,19 @@
       <section class="service">
         <h3 class="h3 service-title">What I'm Doing</h3>
         <ul class="service-list">
-          <li class="service-item">
-            <div class="service-icon-box">
-              <div class="icon-box">
-                <mat-icon>desktop_windows</mat-icon>
+          @for (item of serviceItems; track item.title) {
+            <li class="service-item">
+              <div class="service-icon-box">
+                <div class="icon-box">
+                  <mat-icon>{{ item.icon }}</mat-icon>
+                </div>
               </div>
-            </div>
-            <mat-icon class="fa fa-code"></mat-icon>
-            <div class="service-content-box">
-              <h4 class="h4 service-item-title">Frontend Development</h4>
-              <p class="service-item-text">Building responsive, intuitive interfaces that users actually enjoy. I specialize in Angular to create professional-grade, mobile-friendly web apps that don't sacrifice performance for polish. (I prefer desktop, but my wife prefers mobile—so I make sure both of us are happy.)</p>
-            </div>
-          </li>
-
-          <li class="service-item">
-            <div class="service-icon-box">
-              <div class="icon-box">
-                <mat-icon>dns</mat-icon>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">{{ item.title }}</h4>
+                <p class="service-item-text">{{ item.description }}</p>
               </div>
-            </div>
-            <div class="service-content-box">
-              <h4 class="h4 service-item-title">Backend Development</h4>
-              <p class="service-item-text">Designing scalable RESTful APIs with ASP.NET Core. I focus on clean architecture and performance so the frontend has a solid, reliable foundation to talk to.</p>
-            </div>
-          </li>
-
-          <li class="service-item">
-            <div class="service-icon-box">
-              <div class="icon-box">
-                <mat-icon>device_hub</mat-icon>
-              </div>
-            </div>
-            <div class="service-content-box">
-              <h4 class="h4 service-item-title">Database Management</h4>
-              <p class="service-item-text">Configuring and maintaining secure SQL Server databases. I ensure data is stored efficiently, retrieved quickly, and—most importantly—kept safe.</p>
-            </div>
-          </li>
-
-          <li class="service-item">
-            <div class="service-icon-box">
-              <div class="icon-box">
-                <mat-icon>sync</mat-icon>
-              </div>
-            </div>
-            <div class="service-content-box">
-              <h4 class="h4 service-item-title">Integration & DevOps</h4>
-              <p class="service-item-text">Bridging the gap between frontend, backend, and the real world. I handle API integrations and deployment pipelines so the code actually makes it to production smoothly.</p>
-            </div>
-          </li>
-
-          <li class="service-item">
-            <div class="service-icon-box">
-              <div class="icon-box">
-                <mat-icon>groups</mat-icon>
-              </div>
-            </div>
-            <div class="service-content-box">
-              <h4 class="h4 service-item-title">Project Collaboration</h4>
-              <p class="service-item-text">Translating user needs into working software. I partner with project managers and fellow developers to turn requirements into features—without losing the technical details (or the big picture) along the way.</p>
-            </div>
-          </li>
-
-          <li class="service-item">
-            <div class="service-icon-box">
-              <div class="icon-box">
-                <mat-icon>auto_awesome</mat-icon>
-              </div>
-            </div>
-            <div class="service-content-box">
-              <h4 class="h4 service-item-title">AI-Augmented Development</h4>
-              <p class="service-item-text">Leveraging generative AI and LLMs to accelerate prototyping, automate boilerplate code, and debug complex issues. I treat AI as a collaborative pair programmer—it helps me move faster, but I own the architecture, security, and final quality of every line of code.</p>
-            </div>
-          </li>
-
+            </li>
+          }
         </ul>
       </section>
 
@@ -147,31 +87,32 @@
         </div>
 
         <ol class="timeline-list">
-          <li class="timeline-item" *ngFor="let job of experiences">
-            <div class="timeline-item-header">
-              <div class="timeline-item-title">
-                <h4 class="h4">{{ job.title }}</h4>
-                <a [href]="job.companyUrl" target="_blank" rel="noopener" class="company-link">
-                  @ {{ job.companyName }}
-                  <mat-icon>open_in_new</mat-icon>
-                </a>
-                @if(job.isCurrent) {
-                  <span class="current-role">Current</span>
-                }
+          @for (job of experiences; track job.companyName + job.period) {
+            <li class="timeline-item">
+              <div class="timeline-item-header">
+                <div class="timeline-item-title">
+                  <h4 class="h4">{{ job.title }}</h4>
+                  <a [href]="job.companyUrl" target="_blank" rel="noopener" class="company-link">
+                    @ {{ job.companyName }}
+                    <mat-icon>open_in_new</mat-icon>
+                  </a>
+                  @if (job.isCurrent) {
+                    <span class="current-role">Current</span>
+                  }
+                </div>
+                <span class="period">{{ job.period }}</span>
               </div>
-              <span class="period">{{ job.period }}</span>
-            </div>
 
-            <ul class="achievements-list">
-              @for(achievement of job.achievements; track achievement) {
-                <li class="achievement-item">
-                  <mat-icon>chevron_right</mat-icon>
-                  <span>{{ achievement }}</span>
-                </li>
-              }
-
-            </ul>
-          </li>
+              <ul class="achievements-list">
+                @for (achievement of job.achievements; track achievement) {
+                  <li class="achievement-item">
+                    <mat-icon>chevron_right</mat-icon>
+                    <span>{{ achievement }}</span>
+                  </li>
+                }
+              </ul>
+            </li>
+          }
         </ol>
       </section>
 
@@ -185,8 +126,7 @@
         </div>
 
         <div class="skills-grid">
-          <!-- Frontend -->
-           @for(category of skillCategories; track category.name) {
+          @for (category of skillCategories; track category.name) {
             <div class="skill-category">
               <div class="category-header">
                 <div class="icon-box">
@@ -197,23 +137,31 @@
               </div>
 
               <div class="skill-items">
-                @for(skill of category.items; track skill) {
+                @for (skill of category.items; track skill) {
                   <span class="skill-tag">
-                    @switch(category.name) {
-                      @case('Frontend') { <mat-icon>html</mat-icon> }
-                      @case('Backend') { <mat-icon>settings</mat-icon> }
-                      @case('Databases') { <mat-icon>device_hub</mat-icon> }
-                      @case('Architecture') { <mat-icon>account_tree</mat-icon> }
-                      @case('Tools & Validation') { <mat-icon>build</mat-icon> }
+                    @switch (category.name) {
+                      @case ('Frontend') {
+                        <mat-icon>html</mat-icon>
+                      }
+                      @case ('Backend') {
+                        <mat-icon>settings</mat-icon>
+                      }
+                      @case ('Databases') {
+                        <mat-icon>device_hub</mat-icon>
+                      }
+                      @case ('Architecture') {
+                        <mat-icon>account_tree</mat-icon>
+                      }
+                      @case ('Tools & Validation') {
+                        <mat-icon>build</mat-icon>
+                      }
                     }
                     {{ skill }}
                   </span>
                 }
-
               </div>
             </div>
-           }
-
+          }
         </div>
       </section>
 
@@ -226,26 +174,32 @@
         </div>
 
         <ol class="timeline-list">
-          <li class="timeline-item" *ngFor="let item of education; let i = index">
-            <h4 class="h4 timeline-item-title">{{ item.title }}</h4>
-            <span>{{ item.period }}</span>
-            <p class="timeline-text">{{ item.description }}</p>
+          @for (item of education; track item.title; let i = $index) {
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">{{ item.title }}</h4>
+              <span>{{ item.period }}</span>
+              <p class="timeline-text">{{ item.description }}</p>
 
-            <!-- Course Toggle Button -->
-            <div class="course-toggle" [class.expanded]="expandedCourses[i]" (click)="toggleCourses(i)">
-              <mat-icon>{{ expandedCourses[i] ? 'expand_less' : 'expand_more' }}</mat-icon>
-              <span>{{ expandedCourses[i] ? 'Hide courses' : 'Show courses (' + item.courses.length + ')' }}</span>
-            </div>
-
-            <!-- Course List (conditionally shown) -->
-            <div class="course-list-container" *ngIf="expandedCourses[i]">
-              <div class="course-list">
-                <div *ngFor="let course of item.courses" class="course-item">
-                  {{ course }}
-                </div>
+              <!-- Course Toggle Button -->
+              <div class="course-toggle" [class.expanded]="expandedCourses[i]" (click)="toggleCourses(i)">
+                <mat-icon>{{ expandedCourses[i] ? 'expand_less' : 'expand_more' }}</mat-icon>
+                <span>{{ expandedCourses[i] ? 'Hide courses' : 'Show courses (' + item.courses.length + ')' }}</span>
               </div>
-            </div>
-          </li>
+
+              <!-- Course List (conditionally shown) -->
+              @if (expandedCourses[i]) {
+                <div class="course-list-container">
+                  <div class="course-list">
+                    @for (course of item.courses; track course) {
+                      <div class="course-item">
+                        {{ course }}
+                      </div>
+                    }
+                  </div>
+                </div>
+              }
+            </li>
+          }
         </ol>
       </section>
 
@@ -259,13 +213,19 @@
 
       <section class="projects">
         <ul class="filter-list">
-          <li class="filter-item" *ngFor="let category of filterCategories">
-            <button class="filter-btn" [class.active]="activeFilter === category" (click)="setActiveFilter(category)" mat-button data-filter-btn>{{ category }}</button>
-          </li>
+          @for (category of filterCategories; track category) {
+            <li class="filter-item">
+              <button class="filter-btn" [class.active]="activeFilter === category"
+                      (click)="setActiveFilter(category)" mat-button data-filter-btn>
+                {{ category }}
+              </button>
+            </li>
+          }
         </ul>
 
         <div class="filter-select-box">
-          <button class="filter-select" [class.active]="filterSelectActive" (click)="toggleFilterSelect()" data-select>
+          <button class="filter-select" [class.active]="filterSelectActive"
+                  (click)="toggleFilterSelect()" data-select>
             <div class="select-value" data-selecct-value>{{ selectedFilter }}</div>
             <div class="select-icon">
               <mat-icon>expand_more</mat-icon>
@@ -273,71 +233,82 @@
           </button>
 
           <ul class="select-list">
-            <li class="select-item" *ngFor="let category of filterCategories">
-              <button (click)="selectFilter(category)" data-select-item>{{ category }}</button>
-            </li>
+            @for (category of filterCategories; track category) {
+              <li class="select-item">
+                <button (click)="selectFilter(category)" data-select-item>{{ category }}</button>
+              </li>
+            }
           </ul>
         </div>
 
         <ul class="project-list">
-          <li class="project-item active" *ngFor="let project of projects"
-              [class.active]="matchesFilter(project.category)"
-              [attr.data-filter-item]="''"
-              [attr.data-category]="project.category">
-            <a href="#">
-              <figure class="project-img">
-                <div class="project-item-icon-box">
-                  <mat-icon>visibility</mat-icon>
-                </div>
-                <img [src]="'/images/' + project.image" [alt]="project.title" loading="lazy">
-              </figure>
-              <h3 class="project-title">{{ project.title }}</h3>
-              <p class="project-category">{{ project.category }}</p>
-            </a>
-          </li>
+          @for (project of filteredProjects(activeFilter); track project.name) {
+            <li class="project-item active"
+                [class.active]="true"
+                (click)="openProjectModal(project)">
+              <a href="javascript:void(0)">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <mat-icon>visibility</mat-icon>
+                  </div>
+                  <img [src]="project.imageCaptions[0]?.imageUrl" [alt]="project.name" loading="lazy">
+                  <span class="project-tech-badge">{{ project.category }}</span>
+                </figure>
+                <h3 class="project-title">{{ project.name }}</h3>
+                <p class="project-category">{{ project.description | slice:0:100 }}...</p>
+              </a>
+            </li>
+          }
         </ul>
       </section>
 
-            <!-- Testimonials -->
-      <section class="testimonials">
-        <h3 class="h3 testimonials-title">Testimonials</h3>
-        <ul class="testimonials-list has-scrollbar">
-          <li class="testimonials-item" *ngFor="let testimonial of testimonials">
-            <div class="content-card" (click)="openTestimonialModal(testimonial)" data-testimonials-item>
-              <figure class="testimonials-avatar-box">
-                <img [src]="testimonial.avatar" [alt]="testimonial.name" width="60" data-testimonials-avatar>
-              </figure>
-              <h4 class="h4 testimonials-item-title" data-testimonials-title>{{ testimonial.name }}</h4>
-              <div class="testimonials-text" data-testimonials-text>
-                <p>{{ testimonial.text }}</p>
+      <!-- Project Modal -->
+      <div class="project-modal-container" [class.active]="projectModalActive">
+        <div class="overlay" [class.active]="projectModalActive" (click)="closeProjectModal()"></div>
+
+        @if (selectedProject) {
+          <div class="project-modal">
+            <div class="project-modal-header">
+              <h2>{{ selectedProject.name }}</h2>
+              <button class="modal-close-btn" (click)="closeProjectModal()" mat-icon-button>
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+
+            <div class="project-modal-content">
+              <p class="project-modal-description">{{ selectedProject.description }}</p>
+
+              <div class="project-modal-links">
+                <a [href]="selectedProject.url" target="_blank" rel="noopener" class="project-modal-link">
+                  <mat-icon>code</mat-icon>
+                  <span>GitHub Repository</span>
+                  <mat-icon>open_in_new</mat-icon>
+                </a>
+
+                @if (selectedProject.demoUrl) {
+                  <a [href]="selectedProject.demoUrl" target="_blank" rel="noopener" class="project-modal-link">
+                    <mat-icon>launch</mat-icon>
+                    <span>Live Demo</span>
+                    <mat-icon>open_in_new</mat-icon>
+                  </a>
+                }
+              </div>
+
+              <h3 class="h4" style="color: var(--white-2); margin-bottom: 15px;">Gallery</h3>
+
+              <div class="project-gallery">
+                @for (image of selectedProject.imageCaptions; track image.imageUrl) {
+                  <div class="gallery-item">
+                    <img [src]="image.imageUrl" [alt]="image.caption" class="gallery-image">
+                    <div class="gallery-caption">{{ image.caption }}</div>
+                  </div>
+                }
               </div>
             </div>
-          </li>
-        </ul>
-      </section>
-
-      <!-- Testimonials Modal -->
-      <div class="modal-container" #modalContainer [class.active]="modalActive" data-modal-container>
-        <div class="overlay" #overlay [class.active]="modalActive" (click)="closeTestimonialModal()" data-overlay></div>
-        <section class="testimonials-modal" *ngIf="selectedTestimonial">
-          <button class="modal-close-btn" (click)="closeTestimonialModal()" data-modal-close-btn mat-icon-button>
-            <mat-icon>close</mat-icon>
-          </button>
-          <div class="modal-img-wrapper">
-            <figure class="modal-avatar-box">
-              <img [src]="selectedTestimonial.avatar" [alt]="selectedTestimonial.name" width="80" data-modal-img>
-            </figure>
-            <img src="/images/icon-quote.svg" alt="quote icon">
           </div>
-          <div class="modal-content">
-            <h4 class="h3 modal-title" data-modal-title>{{ selectedTestimonial.name }}</h4>
-            <time datetime="2021-06-14">14 June, 2021</time>
-            <div data-modal-text>
-              <p>{{ selectedTestimonial.text }}</p>
-            </div>
-          </div>
-        </section>
+        }
       </div>
+
     </article>
 
   </div>
