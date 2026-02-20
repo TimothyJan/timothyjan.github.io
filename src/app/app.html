@@ -209,6 +209,7 @@
     <article class="portfolio" [class.active]="activePage === 'portfolio'" data-page="portfolio">
       <header>
         <h2 class="h2 article-title">Portfolio</h2>
+        <br>
       </header>
 
       <section class="projects">
@@ -296,14 +297,41 @@
 
               <h3 class="h4" style="color: var(--white-2); margin-bottom: 15px;">Gallery</h3>
 
-              <div class="project-gallery">
-                @for (image of selectedProject.imageCaptions; track image.imageUrl) {
-                  <div class="gallery-item">
-                    <img [src]="image.imageUrl" [alt]="image.caption" class="gallery-image">
-                    <div class="gallery-caption">{{ image.caption }}</div>
+
+              <!-- Gallery Carousel -->
+              <div class="project-carousel">
+                <!-- Main Carousel Container -->
+                <div class="carousel-container">
+                  <!-- Current Image -->
+                  <div class="carousel-slide">
+                    <img [src]="selectedProject.imageCaptions[currentImageIndex].imageUrl"
+                        [alt]="selectedProject.imageCaptions[currentImageIndex].caption"
+                        class="carousel-image">
                   </div>
-                }
+
+                  <!-- Image Counter -->
+                  <div class="carousel-counter">
+                    {{ currentImageIndex + 1 }} / {{ selectedProject.imageCaptions.length }}
+                  </div>
+                </div>
+
+                <!-- Caption - Moved outside carousel-container but keep it under the image -->
+                <div class="carousel-caption">
+                  {{ selectedProject.imageCaptions[currentImageIndex].caption }}
+                </div>
+
+                <!-- Thumbnail Navigation -->
+                <div class="carousel-thumbnails" *ngIf="selectedProject.imageCaptions.length > 1">
+                  @for (image of selectedProject.imageCaptions; track image.imageUrl; let i = $index) {
+                    <div class="thumbnail-item"
+                        [class.active]="i === currentImageIndex"
+                        (click)="currentImageIndex = i">
+                      <img [src]="image.imageUrl" [alt]="'Thumbnail ' + (i + 1)">
+                    </div>
+                  }
+                </div>
               </div>
+
             </div>
           </div>
         }

@@ -399,6 +399,9 @@ skillCategories = [
   // Active page
   activePage = 'about';
 
+  // Modal Carousel index
+  currentImageIndex = 0;
+
   private isBrowser: boolean;
 
   constructor(
@@ -425,19 +428,6 @@ skillCategories = [
 
   toggleCourses(index: number) {
     this.expandedCourses[index] = !this.expandedCourses[index];
-  }
-
-  // Testimonial modal
-  openTestimonialModal(testimonial: any) {
-    this.selectedTestimonial = testimonial;
-    this.modalActive = true;
-    document.body.style.overflow = 'hidden';
-  }
-
-  closeTestimonialModal() {
-    this.modalActive = false;
-    this.selectedTestimonial = null;
-    document.body.style.overflow = '';
   }
 
   // Filter select toggle
@@ -468,9 +458,18 @@ skillCategories = [
     window.scrollTo(0, 0);
   }
 
-  // Methods for project modal
+  // Filter projects by category
+  filteredProjects(category: string): FeaturedProject[] {
+    if (category === 'All') {
+      return this.featuredProjects;
+    }
+    return this.featuredProjects.filter(p => p.category === category);
+  }
+
+  // Update openProjectModal to reset index
   openProjectModal(project: FeaturedProject) {
     this.selectedProject = project;
+    this.currentImageIndex = 0; // Reset to first image
     this.projectModalActive = true;
     document.body.style.overflow = 'hidden';
   }
@@ -478,15 +477,8 @@ skillCategories = [
   closeProjectModal() {
     this.projectModalActive = false;
     this.selectedProject = null;
+    this.currentImageIndex = 0; // Reset index
     document.body.style.overflow = '';
-  }
-
-  // Filter projects by category
-  filteredProjects(category: string): FeaturedProject[] {
-    if (category === 'All') {
-      return this.featuredProjects;
-    }
-    return this.featuredProjects.filter(p => p.category === category);
   }
 
 }

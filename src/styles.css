@@ -1694,9 +1694,261 @@ article.active {
   line-height: 1.6;
 }
 
+/*-------------------------------------------*\
+  #CAROUSEL STYLES
+\*-------------------------------------------*/
 
+.project-carousel {
+  margin: 25px 0;
+  width: 100%;
+}
 
+.carousel-container {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--eerie-black-1);
+  box-shadow: var(--shadow-3);
+}
 
+.carousel-slide {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--eerie-black-1);
+}
+
+.carousel-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: opacity var(--transition-1);
+}
+
+/* Ensure carousel container has proper positioning context */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--eerie-black-1);
+  box-shadow: var(--shadow-3);
+  min-height: 300px; /* Ensure minimum height */
+}
+
+/* Image Counter - Improved */
+.carousel-counter {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--white-2);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: var(--shadow-2);
+  z-index: 5;
+  letter-spacing: 0.5px;
+}
+
+/* Caption - Improved */
+.carousel-caption {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+  color: var(--white-2);
+  padding: 16px 24px;
+  text-align: center;
+  font-size: var(--fs-5);
+  line-height: 1.5;
+  border-top: 1px solid var(--jet);
+  backdrop-filter: blur(4px);
+  font-weight: var(--fw-400);
+}
+
+/* Thumbnail Navigation - Improved */
+.carousel-thumbnails {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  overflow-x: auto;
+  padding: 8px 4px;
+  scroll-behavior: smooth;
+  justify-content: center;
+}
+
+.carousel-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.carousel-thumbnails::-webkit-scrollbar-track {
+  background: var(--jet);
+  border-radius: 3px;
+}
+
+.carousel-thumbnails::-webkit-scrollbar-thumb {
+  background: var(--light-blue);
+  border-radius: 3px;
+}
+
+.thumbnail-item {
+  flex: 0 0 100px;
+  height: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all var(--transition-1);
+  border: 3px solid transparent;
+  box-shadow: var(--shadow-1);
+}
+
+.thumbnail-item:hover {
+  opacity: 0.9;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-3);
+}
+
+.thumbnail-item.active {
+  opacity: 1;
+  border-color: var(--light-blue);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(100, 150, 255, 0.3);
+}
+
+.thumbnail-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Keyboard navigation hint */
+.carousel-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+  color: var(--light-gray-70);
+  font-size: var(--fs-7);
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+}
+
+.carousel-hint mat-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--light-gray-70);
+}
+
+.carousel-hint span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Responsive adjustments */
+@media (min-width: 580px) {
+  .carousel-arrow {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  .carousel-arrow mat-icon {
+    font-size: 36px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .carousel-arrow-prev {
+    left: 25px;
+  }
+
+  .carousel-arrow-next {
+    right: 25px;
+  }
+
+  .thumbnail-item {
+    flex: 0 0 120px;
+    height: 80px;
+  }
+
+  .carousel-counter {
+    top: 25px;
+    right: 25px;
+    padding: 10px 20px;
+    font-size: var(--fs-5);
+  }
+
+  .carousel-caption {
+    padding: 20px 30px;
+    font-size: var(--fs-4);
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel-arrow-prev {
+    left: 30px;
+  }
+
+  .carousel-arrow-next {
+    right: 30px;
+  }
+
+  .thumbnail-item {
+    flex: 0 0 140px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 580px) {
+  .carousel-arrow {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .carousel-arrow mat-icon {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .carousel-arrow-prev {
+    left: 10px;
+  }
+
+  .carousel-arrow-next {
+    right: 10px;
+  }
+
+  .carousel-counter {
+    top: 10px;
+    right: 10px;
+    padding: 4px 10px;
+    font-size: var(--fs-7);
+  }
+
+  .carousel-caption {
+    padding: 12px 16px;
+    font-size: var(--fs-6);
+  }
+
+  .thumbnail-item {
+    flex: 0 0 70px;
+    height: 50px;
+  }
+}
 
 /*===========================================*\
   #08. RESPONSIVE BREAKPOINTS
